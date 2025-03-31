@@ -29,3 +29,10 @@ module "vpc" {
   vpc_name = "custom-vpc"
   vpc_cidr = "10.0.0.0/16"
 }
+
+module "sqs" {
+  source                                 = "./modules/sqs"
+  queue_name                             = "custom-sqs"
+  is_fifo                                = false
+  is_content_based_deduplication_enabled = true
+}
